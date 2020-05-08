@@ -50,8 +50,10 @@ export default function PathfindingVisualizer() {
       }
       setTimeout(() => {
         const node = visitedNodesInOrder[i];
-        document.getElementById(`node-${node.row}-${node.col}`).className =
-          'node node-visited';
+        if (node.type !== node_type.Start && node.type !== node_type.Finish) {
+          document.getElementById(`node-${node.row}-${node.col}`).className =
+            'node node-visited';
+        }
       }, 10 * i);
     }
   };
@@ -60,8 +62,10 @@ export default function PathfindingVisualizer() {
     for (let i = 0; i < nodesInShortestPathOrder.length; i++) {
       setTimeout(() => {
         const node = nodesInShortestPathOrder[i];
-        document.getElementById(`node-${node.row}-${node.col}`).className =
-          'node node-shortest-path';
+        if (node.type !== node_type.Start && node.type !== node_type.Finish) {
+          document.getElementById(`node-${node.row}-${node.col}`).className =
+            'node node-shortest-path';
+        }
       }, 50 * i);
     }
   };
