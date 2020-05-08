@@ -9,6 +9,13 @@ const START_NODE_COL = 15;
 const FINISH_NODE_ROW = 10;
 const FINISH_NODE_COL = 35;
 
+const node_type = {
+  Wall: 'node-wall',
+  Finish: 'node-finish',
+  Start: 'node-start',
+  None: '',
+};
+
 export default function PathfindingVisualizer() {
   const [grid, setGrid] = useState([]);
   const [mouseIsPressed, setMouseIsPressed] = useState(false);
@@ -83,14 +90,12 @@ export default function PathfindingVisualizer() {
             <div key={rowIdx}>
               {' '}
               {row.map((node, nodeIdx) => {
-                const {row, col, isFinish, isStart, isWall} = node;
+                const {row, col, type} = node;
                 return (
                   <Node
                     key={nodeIdx}
                     col={col}
-                    isFinish={isFinish}
-                    isStart={isStart}
-                    isWall={isWall}
+                    type={type}
                     mouseIsPressed={mouseIsPressed}
                     onMouseDown={(row, col) => handleMouseDown(row, col)}
                     onMouseEnter={(row, col) => handleMouseEnter(row, col)}
@@ -121,14 +126,19 @@ const getInitialGrid = () => {
 };
 
 const createNode = (col, row) => {
+  let type = node_type.None;
+  if (row === START_NODE_ROW && col === START_NODE_COL) {
+    type = node_type.Start;
+  }
+  if (row === FINISH_NODE_ROW && col === FINISH_NODE_COL) {
+    type = node_type.Finish;
+  }
   return {
     col,
     row,
-    isStart: row === START_NODE_ROW && col === START_NODE_COL,
-    isFinish: row === FINISH_NODE_ROW && col === FINISH_NODE_COL,
+    type,
     distance: Infinity,
     isVisited: false,
-    isWall: false,
     previousNode: null,
   };
 };
@@ -138,7 +148,7 @@ const getNewGridWithWallToggled = (grid, row, col) => {
   const node = newGrid[row][col];
   const newNode = {
     ...node,
-    isWall: !node.isWall,
+    type: node.type === node_type.Wall ? node_type.None : node_type.Wall,
   };
   newGrid[row][col] = newNode;
   return newGrid;
