@@ -1,5 +1,5 @@
 <script>
-  import * as handleMouse from "./HandleMouse.js";
+  import * as handleMouse from "./handleMouse.js";
   export let col, type, row;
 </script>
 
@@ -11,10 +11,12 @@
   /* // BBCDE5 */
   .node-finish {
     background-color: red; /* #f0386b; */
+    cursor: pointer;
   }
 
   .node-start {
     background-color: green; /* #40f99b; */
+    cursor: pointer;
   }
 
   .node-visited {

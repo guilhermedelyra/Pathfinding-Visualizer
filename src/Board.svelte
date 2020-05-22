@@ -1,7 +1,7 @@
 <script>
   import Node from "./Node.svelte";
   import { grid } from "./store.js";
-  import * as dflt_values from "./ConstValues.js";
+  import * as dflt_values from "./constValues.js";
 
   let board;
   const unsubscribe = grid.subscribe(value => {
@@ -15,7 +15,7 @@
     grid-template-rows: repeat(18, 1fr);
     grid-template-columns: repeat(50, 1fr);
     background-color: #fbfbfb;
-    margin: 5em auto;
+    margin: 3em auto;
     width: 80vw;
     height: 65vh;
 

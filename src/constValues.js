@@ -8,10 +8,10 @@ export const FINISH_NODE_ROW = 8;
 export const FINISH_NODE_COL = 35;
 
 export const NODE_TYPE = {
-  Wall: "node-wall",
-  Finish: "node-finish",
-  Start: "node-start",
-  Visited: "node-visited",
-  ShortestPath: "node-shortest-path",
-  None: "",
+    Wall: "node-wall",
+    Finish: "node-finish",
+    Start: "node-start",
+    Visited: "node-visited",
+    ShortestPath: "node-shortest-path",
+    None: "",
 };

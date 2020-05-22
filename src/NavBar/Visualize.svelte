@@ -18,7 +18,7 @@
 </script>
 
 <script>
-  import * as dflt_values from "./../ConstValues";
+  import * as dflt_values from "./../constValues";
   import { visualizeDijkstra } from "./../pathfinding_algorithms/Dijkstra/Dijkstra.svelte";
   //   import { visualizeDFS } from "./../pathfinding_algorithms/DFS/DFS.svelte";
   //   import { visualizeBFS } from "./../pathfinding_algorithms/BFS/BFS.svelte";

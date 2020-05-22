@@ -1,15 +1,21 @@
 <script context="module">
-  import { grid as _grid } from "../../store.js";
+  import {
+    grid as _grid,
+    start_node_pos,
+    finish_node_pos
+  } from "../../store.js";
   import { get } from "svelte/store";
   import { dijkstra, getNodesInShortestPathOrder } from "./dijkstra";
-  import * as dflt_values from "../../ConstValues";
+  import * as dflt_values from "../../constValues";
 
   export async function visualizeDijkstra() {
     const grid = get(_grid);
-    const startNode =
-      grid[dflt_values.START_NODE_ROW][dflt_values.START_NODE_COL];
-    const finishNode =
-      grid[dflt_values.FINISH_NODE_ROW][dflt_values.FINISH_NODE_COL];
+    const st = get(start_node_pos);
+    const fn = get(finish_node_pos);
+
+    const startNode = grid[st.row][st.col];
+    const finishNode = grid[fn.row][fn.col];
+
     const visitedNodesInOrder = dijkstra(grid, startNode, finishNode);
     const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNode);
 

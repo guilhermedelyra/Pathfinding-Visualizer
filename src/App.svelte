@@ -1,7 +1,9 @@
 <script>
   import Board from "./Board.svelte";
   import NavBar from "./NavBar/NavBar.svelte";
-  import * as handleMouse from "./HandleMouse.js";
+  import * as handleMouse from "./handleMouse.js";
+  import Icon from "svelte-awesome";
+  import * as icons from "svelte-awesome/icons";
 </script>
 
 <style>
