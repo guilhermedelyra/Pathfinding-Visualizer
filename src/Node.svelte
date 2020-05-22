@@ -5,11 +5,8 @@
 
 <style>
   .node {
-    width: 2%;
-    height: 0;
-    padding-bottom: 2%;
     outline: 1px solid rgb(175, 216, 248); /* #1b1f3b; /* rgb(175, 216, 248) */
-    display: inline-block;
+    background-color: #fbfbfb;
   }
   /* // BBCDE5 */
   .node-finish {
@@ -37,16 +34,13 @@
       background-color: rgba(0, 0, 66, 0.75);
       border-radius: 100%;
     }
-
     50% {
       background-color: rgba(17, 104, 217, 0.75);
     }
-
     75% {
       transform: scale(1.2);
       background-color: rgba(0, 217, 159, 0.75);
     }
-
     100% {
       transform: scale(1);
       background-color: rgba(0, 190, 218, 0.75);
