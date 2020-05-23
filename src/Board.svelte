@@ -17,7 +17,7 @@
     background-color: #fbfbfb;
     margin: 3em auto;
     width: 80vw;
-    height: 65vh;
+    height: 60vh;
 
     -webkit-touch-callout: none;
     /* iOS Safari */

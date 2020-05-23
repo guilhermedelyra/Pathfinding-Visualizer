@@ -10,7 +10,7 @@
   @import url(https://fonts.googleapis.com/css?family=Open+Sans);
   nav {
     display: table;
-    margin: 25px auto;
+    margin: 0.5em auto;
     box-shadow: 0px 1px 0px #023333;
   }
   ul {
