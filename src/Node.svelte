@@ -1,5 +1,7 @@
 <script>
   import * as handleMouse from "./handleMouse.js";
+  import Icon from "svelte-awesome";
+  import * as icons from "svelte-awesome/icons";
   export let col, type, row;
 </script>
 
@@ -7,16 +9,54 @@
   .node {
     outline: 1px solid rgb(175, 216, 248); /* #1b1f3b; /* rgb(175, 216, 248) */
     background-color: #fbfbfb;
+    text-align: center;
   }
   /* // BBCDE5 */
   .node-finish {
-    background-color: red; /* #f0386b; */
     cursor: pointer;
   }
 
   .node-start {
-    background-color: green; /* #40f99b; */
     cursor: pointer;
+  }
+
+  .arrow {
+    border-bottom-style: solid;
+    border-bottom-width: 0.25em;
+    border-right-style: solid;
+    border-right-width: 0.25em;
+    border-color: #42033d;
+    margin: 0 auto;
+    display: inline-block;
+    height: 0.8em;
+    position: relative;
+    width: 0.8em;
+    -moz-transform: rotate(315deg);
+    -ms-transform: rotate(315deg);
+    -webkit-transform: rotate(315deg);
+    transform: rotate(315deg);
+    right: 15%;
+    top: 15%;
+  }
+
+  /* .arrow::after {
+
+    height: 12px;
+    position: absolute;
+    width: 12px;
+  } */
+  :global(.startIcon) {
+    margin: 0 auto;
+    fill: #1b1f3b !important; /* #40f99b; */
+  }
+
+  :global(.finishIcon) {
+    fill: #d33f49 !important; /* #f0386b; */
+    /* height: 1.3em;
+    width: 1.3em; */
+    position: relative;
+    top: 15%;
+    margin: auto;
   }
 
   .node-visited {
@@ -110,4 +150,13 @@
   id={`node-${row}-${col}`}
   class={`node ${type}`}
   on:mousedown={() => handleMouse.Down(row, col)}
-  on:mouseenter={() => handleMouse.Enter(row, col)} />
+  on:mouseenter={() => handleMouse.Enter(row, col)}>
+  {#if type === 'node-start'}
+    <span class="arrow" title="Next" />
+    <!-- <Icon data={icons.angleRight} scale="1" class="startIcon" /> -->
+  {:else if type === 'node-finish'}
+    <Icon data={icons.bullseye} scale="1.2" class="finishIcon" />
+  {/if}
+  <!-- <div class="container"> -->
+  <!-- </div> -->
+</div>

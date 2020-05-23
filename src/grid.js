@@ -1,14 +1,18 @@
 import * as dflt_values from "./constValues.js";
-import { start_node_pos, finish_node_pos } from "./store.js";
-import { get } from "svelte/store";
 import { compareObj } from "./helpers";
 
 export const getInitialGrid = () => {
   let grid = new Array(dflt_values.N_ROWS).fill(0).map((x, row) =>
     new Array(dflt_values.N_COLS).fill(0).map((y, col) => {
       let type = dflt_values.NODE_TYPE.None;
-      const startNode = get(start_node_pos);
-      const finishNode = get(finish_node_pos);
+      const startNode = {
+        row: dflt_values.START_NODE_ROW,
+        col: dflt_values.START_NODE_COL,
+      };
+      const finishNode = {
+        row: dflt_values.FINISH_NODE_ROW,
+        col: dflt_values.FINISH_NODE_COL,
+      };
       const currentNode = {
         row,
         col,
