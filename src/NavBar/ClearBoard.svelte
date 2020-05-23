@@ -1,8 +1,23 @@
 <script>
   import { getInitialGrid } from "./../grid.js";
-  import { grid } from "./../store.js";
+  import { grid, start_node_pos, finish_node_pos } from "./../store.js";
+  import {
+    START_NODE_ROW,
+    START_NODE_COL,
+    FINISH_NODE_ROW,
+    FINISH_NODE_COL
+  } from "./../constValues";
+
   const cleanUp = () => {
     grid.update(() => getInitialGrid());
+    start_node_pos.update(() => ({
+      row: START_NODE_ROW,
+      col: START_NODE_COL
+    }));
+    finish_node_pos.update(() => ({
+      row: FINISH_NODE_ROW,
+      col: FINISH_NODE_COL
+    }));
   };
 </script>
 
